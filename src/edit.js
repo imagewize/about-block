@@ -37,69 +37,71 @@ import profileImage from './assets/profile.jpg';
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
+export default function Edit({ attributes, setAttributes }) {
+    const { backgroundColor, textColor } = attributes;
+    
     const TEMPLATE = [
-        ['core/spacer', { 
-            height: '60px'
-        }],
-        ['core/columns', { 
+        ['core/group', {
+            style: {
+                color: {
+                    background: '#ebeced'
+                }
+            },
             layout: { type: 'constrained' }
         }, [
-            ['core/column', { 
-                width: '20%',
-                style: {
-                    spacing: {
-                        padding: {
-                            top: "1rem"
+            ['core/spacer', { height: '60px' }],
+            ['core/columns', { layout: { type: 'constrained' }}, [
+                ['core/column', { 
+                    width: '20%',
+                    style: {
+                        spacing: {
+                            padding: {
+                                top: "1rem"
+                            }
                         }
                     }
-                }
-            }, [
-                ['core/image', { 
-                    className: 'is-style-rounded aligncenter',
-                    url: profileImage,
-                    alt: 'Profile Image'
-                }]
-            ]],
-            ['core/column', { width: '80%' }, [
-                ['core/heading', { 
-                    fontSize: '3xl',
-                    style: {
-                        typography: { 
-                            fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
-                            fontStyle: 'normal', 
-                            fontWeight: '400'
-                        }
-                    },
-                    content: 'Custom Crafted Websites & E-Commerce.'
-                }],
-                ['core/paragraph', { 
-                    fontSize: 'lg',
-                    textColor: 'textbodygray',
-                    style: {
-                        typography: { 
-                            fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
-                            lineHeight: 1.6 
+                }, [
+                    ['core/image', { 
+                        className: 'is-style-rounded aligncenter',
+                        url: profileImage,
+                        alt: 'Profile Image'
+                    }]
+                ]],
+                ['core/column', { width: '80%' }, [
+                    ['core/heading', { 
+                        fontSize: '3xl',
+                        style: {
+                            typography: { 
+                                fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
+                                fontStyle: 'normal', 
+                                fontWeight: '400'
+                            },
+                            color: {
+                                text: '#000000'
+                            }
                         },
-                        color: {
-                            text: 'var(--wp--preset--color--textbodygray, #4a5568)'
-                        }
-                    },
-                    content: 'At Imagewize, we empower SMEs and startups by delivering custom web and e-commerce solutions. With expertise in web design, development, and SEO, every project is tailored to meet your unique needs and drive success. This site is dedicated to helping businesses grow online with customized, high-performance solutions.'
-                }]
-            ]]
-        ]],
-        ['core/spacer', { 
-            height: '60px'
-        }]
+                        content: 'Custom Crafted Websites & E-Commerce.'
+                    }],
+                    ['core/paragraph', { 
+                        fontSize: 'lg',
+                        style: {
+                            typography: { 
+                                fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
+                                lineHeight: 1.6 
+                            },
+                            color: {
+                                text: '#98999a'
+                            }
+                        },
+                        content: 'At Imagewize, we empower SMEs and startups by delivering custom web and e-commerce solutions. With expertise in web design, development, and SEO, every project is tailored to meet your unique needs and drive success. This site is dedicated to helping businesses grow online with customized, high-performance solutions.'
+                    }]
+                ]]
+            ]],
+            ['core/spacer', { height: '60px' }]
+        ]]
     ];
 
-    const blockProps = useBlockProps({
-        className: 'has-background',
-        style: {
-            backgroundColor: 'var(--wp--preset--color--bggray, #f5f5f5)'
-        }
-    });
+    const blockProps = useBlockProps();
 
     return (
         <div {...blockProps}>
