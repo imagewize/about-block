@@ -39,7 +39,8 @@ import profileImage from './assets/profile.jpg';
  */
 export default function Edit() {
     const TEMPLATE = [
-        ['core/group', { 
+        ['core/spacer', { height: '40px' }],
+        ['core/columns', { 
             backgroundColor: 'bggray',
             style: {
                 color: {
@@ -48,49 +49,39 @@ export default function Edit() {
             },
             layout: { type: 'constrained' }
         }, [
-            ['core/spacer', { height: '40px' }],
-            ['core/columns', { 
-                backgroundColor: 'bggray',
-                style: {
-                    color: {
-                        background: 'var(--wp--preset--color--bggray, #f5f5f5)'
-                    }
-                }
-            }, [
-                ['core/column', { width: '20%' }, [
-                    ['core/image', { 
-                        className: 'is-style-rounded',
-                        url: profileImage,
-                        alt: 'Profile Image'
-                    }]
-                ]],
-                ['core/column', { width: '80%' }, [
-                    ['core/heading', { 
-                        fontSize: '3xl',
-                        style: {
-                            typography: { 
-                                fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
-                                fontStyle: 'normal', 
-                                fontWeight: '400'
-                            }
+            ['core/column', { width: '20%' }, [
+                ['core/image', { 
+                    className: 'is-style-rounded',
+                    url: profileImage,
+                    alt: 'Profile Image'
+                }]
+            ]],
+            ['core/column', { width: '80%' }, [
+                ['core/heading', { 
+                    fontSize: '3xl',
+                    style: {
+                        typography: { 
+                            fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
+                            fontStyle: 'normal', 
+                            fontWeight: '400'
+                        }
+                    },
+                    content: 'Custom Crafted Websites & E-Commerce.'
+                }],
+                ['core/paragraph', { 
+                    fontSize: 'lg',
+                    textColor: 'textbodygray',
+                    style: {
+                        typography: { 
+                            fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
+                            lineHeight: 1.6 
                         },
-                        content: 'Custom Crafted Websites & E-Commerce.'
-                    }],
-                    ['core/paragraph', { 
-                        fontSize: 'lg',
-                        textColor: 'textbodygray',
-                        style: {
-                            typography: { 
-                                fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
-                                lineHeight: 1.6 
-                            },
-                            color: {
-                                text: 'var(--wp--preset--color--textbodygray, #4a5568)'
-                            }
-                        },
-                        content: 'At Imagewize, we empower SMEs and startups by delivering custom web and e-commerce solutions. With expertise in web design, development, and SEO, every project is tailored to meet your unique needs and drive success. This site is dedicated to helping businesses grow online with customized, high-performance solutions.'
-                    }]
-                ]]
+                        color: {
+                            text: 'var(--wp--preset--color--textbodygray, #4a5568)'
+                        }
+                    },
+                    content: 'At Imagewize, we empower SMEs and startups by delivering custom web and e-commerce solutions. With expertise in web design, development, and SEO, every project is tailored to meet your unique needs and drive success. This site is dedicated to helping businesses grow online with customized, high-performance solutions.'
+                }]
             ]]
         ]]
     ];

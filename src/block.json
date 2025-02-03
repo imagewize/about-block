@@ -21,7 +21,8 @@
 		"typography": {
 			"fontSize": true,
 			"lineHeight": true
-		}
+		},
+		"align": ["wide", "full"]
 	},
 	"textdomain": "about-block",
 	"editorScript": "file:./index.js",
