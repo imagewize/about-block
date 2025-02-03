@@ -39,9 +39,24 @@ import profileImage from './assets/profile.jpg';
  */
 export default function Edit() {
     const TEMPLATE = [
-        ['core/group', { backgroundColor: 'bggray', layout: { type: 'constrained' }}, [
+        ['core/group', { 
+            backgroundColor: 'bggray',
+            style: {
+                color: {
+                    background: 'var(--wp--preset--color--bggray, #f5f5f5)'
+                }
+            },
+            layout: { type: 'constrained' }
+        }, [
             ['core/spacer', { height: '40px' }],
-            ['core/columns', { backgroundColor: 'bggray' }, [
+            ['core/columns', { 
+                backgroundColor: 'bggray',
+                style: {
+                    color: {
+                        background: 'var(--wp--preset--color--bggray, #f5f5f5)'
+                    }
+                }
+            }, [
                 ['core/column', { width: '20%' }, [
                     ['core/image', { 
                         className: 'is-style-rounded',
@@ -52,7 +67,7 @@ export default function Edit() {
                 ['core/column', { width: '80%' }, [
                     ['core/heading', { 
                         fontSize: '3xl',
-                        fontFamily: 'open-sans',
+                        fontFamily: 'open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
                         style: {
                             typography: { fontStyle: 'normal', fontWeight: '400' }
                         },
@@ -60,10 +75,13 @@ export default function Edit() {
                     }],
                     ['core/paragraph', { 
                         fontSize: 'lg',
-                        fontFamily: 'open-sans',
+                        fontFamily: 'open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
                         textColor: 'textbodygray',
                         style: {
-                            typography: { lineHeight: 1.6 }
+                            typography: { lineHeight: 1.6 },
+                            color: {
+                                text: 'var(--wp--preset--color--textbodygray, #4a5568)'
+                            }
                         },
                         content: 'At Imagewize, we empower SMEs and startups by delivering custom web and e-commerce solutions. With expertise in web design, development, and SEO, every project is tailored to meet your unique needs and drive success. This site is dedicated to helping businesses grow online with customized, high-performance solutions.'
                     }]
