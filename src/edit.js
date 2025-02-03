@@ -37,7 +37,9 @@ import profileImage from './assets/profile.jpg';
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
+export default function Edit({ attributes, setAttributes }) {
+    const { backgroundColor, textColor } = attributes;
+    
     const TEMPLATE = [
         ['core/spacer', { 
             height: '60px'
@@ -75,14 +77,13 @@ export default function Edit() {
                 }],
                 ['core/paragraph', { 
                     fontSize: 'lg',
-                    textColor: 'textbodygray',
                     style: {
                         typography: { 
                             fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
                             lineHeight: 1.6 
                         },
                         color: {
-                            text: 'var(--wp--preset--color--textbodygray, #4a5568)'
+                            text: '#98999a'
                         }
                     },
                     content: 'At Imagewize, we empower SMEs and startups by delivering custom web and e-commerce solutions. With expertise in web design, development, and SEO, every project is tailored to meet your unique needs and drive success. This site is dedicated to helping businesses grow online with customized, high-performance solutions.'
@@ -95,9 +96,10 @@ export default function Edit() {
     ];
 
     const blockProps = useBlockProps({
-        className: `has-background wp-block-group`,
+        className: 'has-background wp-block-group',
         style: {
-            backgroundColor: 'var(--wp--preset--color--bggray, #f5f5f5)'
+            backgroundColor: backgroundColor,
+            color: textColor
         }
     });
 

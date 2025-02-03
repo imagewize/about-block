@@ -24,6 +24,19 @@
 		},
 		"align": ["wide", "full"]
 	},
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ebeced"
+		},
+		"textColor": {
+			"type": "string",
+			"default": "#98999a"
+		},
+		"style": {
+			"type": "object"
+		}
+	},
 	"textdomain": "about-block",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
