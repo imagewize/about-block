@@ -67,18 +67,23 @@ export default function Edit() {
                 ['core/column', { width: '80%' }, [
                     ['core/heading', { 
                         fontSize: '3xl',
-                        fontFamily: 'open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
                         style: {
-                            typography: { fontStyle: 'normal', fontWeight: '400' }
+                            typography: { 
+                                fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
+                                fontStyle: 'normal', 
+                                fontWeight: '400'
+                            }
                         },
                         content: 'Custom Crafted Websites & E-Commerce.'
                     }],
                     ['core/paragraph', { 
                         fontSize: 'lg',
-                        fontFamily: 'open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
                         textColor: 'textbodygray',
                         style: {
-                            typography: { lineHeight: 1.6 },
+                            typography: { 
+                                fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
+                                lineHeight: 1.6 
+                            },
                             color: {
                                 text: 'var(--wp--preset--color--textbodygray, #4a5568)'
                             }
