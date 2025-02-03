@@ -24,13 +24,7 @@ import './editor.scss';
 import { registerBlockType } from '@wordpress/blocks';
 
 // Register dependent blocks
-import '@wordpress/block-library/build-module/group';
-import '@wordpress/block-library/build-module/columns';
-import '@wordpress/block-library/build-module/column';
-import '@wordpress/block-library/build-module/image';
-import '@wordpress/block-library/build-module/heading';
-import '@wordpress/block-library/build-module/paragraph';
-import '@wordpress/block-library/build-module/spacer';
+import '@wordpress/block-library';
 
 /**
  * The edit function describes the structure of your block in the context of the
