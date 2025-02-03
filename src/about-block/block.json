@@ -6,19 +6,23 @@
 	"title": "About Block",
 	"category": "widgets",
 	"icon": "smiley",
-	"description": "Example block scaffolded with Create Block tool.",
+	"description": "About section with image and text",
 	"example": {},
 	"supports": {
-		"html": false
+		"html": false,
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true
+		}
 	},
-	"dependencies": [
-		"core/group",
-		"core/columns",
-		"core/column",
-		"core/image",
-		"core/heading",
-		"core/paragraph"
-	],
 	"textdomain": "about-block",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",

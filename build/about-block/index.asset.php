@@ -1,1 +1,1 @@
-<?php return array('dependencies' => array('react-jsx-runtime', 'wp-block-editor', 'wp-blocks', 'wp-i18n'), 'version' => 'a0fd160012c2217a7491');
+<?php return array('dependencies' => array('react-jsx-runtime', 'wp-block-editor', 'wp-block-library/build-module/column', 'wp-block-library/build-module/columns', 'wp-block-library/build-module/group', 'wp-block-library/build-module/heading', 'wp-block-library/build-module/image', 'wp-block-library/build-module/paragraph', 'wp-block-library/build-module/spacer', 'wp-blocks', 'wp-i18n'), 'version' => '2efd3ec958b3e94361e2');

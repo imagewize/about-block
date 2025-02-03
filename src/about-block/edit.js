@@ -21,6 +21,17 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
  */
 import './editor.scss';
 
+import { registerBlockType } from '@wordpress/blocks';
+
+// Register dependent blocks
+import '@wordpress/block-library/build-module/group';
+import '@wordpress/block-library/build-module/columns';
+import '@wordpress/block-library/build-module/column';
+import '@wordpress/block-library/build-module/image';
+import '@wordpress/block-library/build-module/heading';
+import '@wordpress/block-library/build-module/paragraph';
+import '@wordpress/block-library/build-module/spacer';
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -31,14 +42,28 @@ import './editor.scss';
  */
 export default function Edit() {
     const TEMPLATE = [
-        ['core/group', {}, [
-            ['core/columns', {}, [
-                ['core/column', {}, [
-                    ['core/image', {}]
+        ['core/group', { backgroundColor: 'bggray', layout: { type: 'constrained' }}, [
+            ['core/spacer', { height: '40px' }],
+            ['core/columns', { backgroundColor: 'bggray' }, [
+                ['core/column', { width: '20%' }, [
+                    ['core/image', { className: 'is-style-rounded' }]
                 ]],
-                ['core/column', {}, [
-                    ['core/heading', { placeholder: 'Enter heading...' }],
-                    ['core/paragraph', { placeholder: 'Enter content...' }]
+                ['core/column', { width: '80%' }, [
+                    ['core/heading', { 
+                        fontSize: '3xl',
+                        fontFamily: 'open-sans',
+                        style: {
+                            typography: { fontStyle: 'normal', fontWeight: '400' }
+                        }
+                    }],
+                    ['core/paragraph', { 
+                        fontSize: 'lg',
+                        fontFamily: 'open-sans',
+                        textColor: 'textbodygray',
+                        style: {
+                            typography: { lineHeight: 1.6 }
+                        }
+                    }]
                 ]]
             ]]
         ]]
