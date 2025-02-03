@@ -83,7 +83,8 @@ export default function Edit() {
                     content: 'At Imagewize, we empower SMEs and startups by delivering custom web and e-commerce solutions. With expertise in web design, development, and SEO, every project is tailored to meet your unique needs and drive success. This site is dedicated to helping businesses grow online with customized, high-performance solutions.'
                 }]
             ]]
-        ]]
+        ]],
+        ['core/spacer', { height: '40px' }],
     ];
 
     return (
