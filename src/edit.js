@@ -39,7 +39,15 @@ import profileImage from './assets/profile.jpg';
  */
 export default function Edit() {
     const TEMPLATE = [
-        ['core/spacer', { height: '40px' }],
+        ['core/spacer', { 
+            height: '40px',
+            backgroundColor: 'bggray',
+            style: {
+                color: {
+                    background: 'var(--wp--preset--color--bggray, #f5f5f5)'
+                }
+            }
+        }],
         ['core/columns', { 
             backgroundColor: 'bggray',
             style: {
@@ -84,7 +92,15 @@ export default function Edit() {
                 }]
             ]]
         ]],
-        ['core/spacer', { height: '40px' }],
+        ['core/spacer', { 
+            height: '40px',
+            backgroundColor: 'bggray',
+            style: {
+                color: {
+                    background: 'var(--wp--preset--color--bggray, #f5f5f5)'
+                }
+            }
+        }],
     ];
 
     return (
