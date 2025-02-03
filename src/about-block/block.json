@@ -4,7 +4,7 @@
 	"name": "create-block/about-block",
 	"version": "0.1.0",
 	"title": "About Block",
-	"category": "widgets",
+	"category": "text",
 	"icon": "smiley",
 	"description": "About section with image and text",
 	"example": {},
