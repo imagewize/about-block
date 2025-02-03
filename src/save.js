@@ -16,9 +16,15 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
  * @return {Element} Element to render.
  */
 export default function save() {
+    const blockProps = useBlockProps.save({
+        className: 'wp-block-group'
+    });
+
     return (
-        <div { ...useBlockProps.save() }>
-            <InnerBlocks.Content />
+        <div {...blockProps}>
+            <div className="wp-block-group__inner-container">
+                <InnerBlocks.Content />
+            </div>
         </div>
     );
 }

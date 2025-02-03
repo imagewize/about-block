@@ -95,7 +95,7 @@ export default function Edit() {
     ];
 
     const blockProps = useBlockProps({
-        className: 'has-background',
+        className: `has-background wp-block-group`,
         style: {
             backgroundColor: 'var(--wp--preset--color--bggray, #f5f5f5)'
         }
@@ -103,7 +103,9 @@ export default function Edit() {
 
     return (
         <div {...blockProps}>
-            <InnerBlocks template={TEMPLATE} templateLock="all" />
+            <div className="wp-block-group__inner-container">
+                <InnerBlocks template={TEMPLATE} templateLock="all" />
+            </div>
         </div>
     );
 }
