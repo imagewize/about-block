@@ -1,0 +1,16 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ */
+
+.wp-block-imagewize-about-block { // Changed from wp-block-create-block-about-block
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    .wp-block-image {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+}
