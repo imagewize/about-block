@@ -42,11 +42,9 @@ export default function Edit({ attributes, setAttributes }) {
     
     const TEMPLATE = [
         ['core/group', {
-            backgroundColor: backgroundColor,
             style: {
                 color: {
-                    background: backgroundColor,
-                    text: textColor
+                    background: '#ebeced'
                 }
             },
             layout: { type: 'constrained' }
@@ -77,6 +75,9 @@ export default function Edit({ attributes, setAttributes }) {
                                 fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
                                 fontStyle: 'normal', 
                                 fontWeight: '400'
+                            },
+                            color: {
+                                text: '#000000'
                             }
                         },
                         content: 'Custom Crafted Websites & E-Commerce.'
