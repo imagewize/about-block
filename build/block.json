@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "title": "About Block",
   "category": "text",
-  "icon": "smiley",
+  "icon": "columns",
   "description": "About section with image and text",
   "example": {},
   "supports": {
