@@ -7,4 +7,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    .wp-block-image {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
 }

@@ -45,9 +45,18 @@ export default function Edit() {
         ['core/columns', { 
             layout: { type: 'constrained' }
         }, [
-            ['core/column', { width: '20%' }, [
+            ['core/column', { 
+                width: '20%',
+                style: {
+                    spacing: {
+                        padding: {
+                            top: "1rem"
+                        }
+                    }
+                }
+            }, [
                 ['core/image', { 
-                    className: 'is-style-rounded',
+                    className: 'is-style-rounded aligncenter',
                     url: profileImage,
                     alt: 'Profile Image'
                 }]
