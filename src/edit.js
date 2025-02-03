@@ -26,6 +26,9 @@ import { registerBlockType } from '@wordpress/blocks';
 // Register dependent blocks
 import '@wordpress/block-library';
 
+// Import profile image
+import profileImage from './assets/profile.jpg';
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -40,7 +43,11 @@ export default function Edit() {
             ['core/spacer', { height: '40px' }],
             ['core/columns', { backgroundColor: 'bggray' }, [
                 ['core/column', { width: '20%' }, [
-                    ['core/image', { className: 'is-style-rounded' }]
+                    ['core/image', { 
+                        className: 'is-style-rounded',
+                        url: profileImage,
+                        alt: 'Profile Image'
+                    }]
                 ]],
                 ['core/column', { width: '80%' }, [
                     ['core/heading', { 
@@ -48,7 +55,8 @@ export default function Edit() {
                         fontFamily: 'open-sans',
                         style: {
                             typography: { fontStyle: 'normal', fontWeight: '400' }
-                        }
+                        },
+                        content: 'Custom Crafted Websites & E-Commerce.'
                     }],
                     ['core/paragraph', { 
                         fontSize: 'lg',
@@ -56,7 +64,8 @@ export default function Edit() {
                         textColor: 'textbodygray',
                         style: {
                             typography: { lineHeight: 1.6 }
-                        }
+                        },
+                        content: 'At Imagewize, we empower SMEs and startups by delivering custom web and e-commerce solutions. With expertise in web design, development, and SEO, every project is tailored to meet your unique needs and drive success. This site is dedicated to helping businesses grow online with customized, high-performance solutions.'
                     }]
                 ]]
             ]]
