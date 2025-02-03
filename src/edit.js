@@ -94,6 +94,19 @@ export default function Edit({ attributes, setAttributes }) {
                             }
                         },
                         content: 'At Imagewize, we empower SMEs and startups by delivering custom web and e-commerce solutions. With expertise in web design, development, and SEO, every project is tailored to meet your unique needs and drive success. This site is dedicated to helping businesses grow online with customized, high-performance solutions.'
+                    }],
+                    ['core/paragraph', { 
+                        fontSize: 'base',
+                        style: {
+                            typography: { 
+                                fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
+                                lineHeight: 2
+                            },
+                            color: {
+                                text: '#98999a'
+                            }
+                        },
+                        content: 'Imagewize began as a passion project in 2016 and has grown into a full-service web solutions provider. Our mission is to craft stunning websites, build powerful e-commerce platforms with WooCommerce, and implement cutting-edge SEO strategies, including technical SEO. Whether you need a custom WordPress site or a tailored WooCommerce solution, we deliver exceptional results designed to help your business thrive online.'
                     }]
                 ]]
             ]],
