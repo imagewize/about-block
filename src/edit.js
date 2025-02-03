@@ -40,21 +40,9 @@ import profileImage from './assets/profile.jpg';
 export default function Edit() {
     const TEMPLATE = [
         ['core/spacer', { 
-            height: '40px',
-            backgroundColor: 'bggray',
-            style: {
-                color: {
-                    background: 'var(--wp--preset--color--bggray, #f5f5f5)'
-                }
-            }
+            height: '40px'
         }],
         ['core/columns', { 
-            backgroundColor: 'bggray',
-            style: {
-                color: {
-                    background: 'var(--wp--preset--color--bggray, #f5f5f5)'
-                }
-            },
             layout: { type: 'constrained' }
         }, [
             ['core/column', { width: '20%' }, [
@@ -93,18 +81,19 @@ export default function Edit() {
             ]]
         ]],
         ['core/spacer', { 
-            height: '40px',
-            backgroundColor: 'bggray',
-            style: {
-                color: {
-                    background: 'var(--wp--preset--color--bggray, #f5f5f5)'
-                }
-            }
-        }],
+            height: '40px'
+        }]
     ];
 
+    const blockProps = useBlockProps({
+        className: 'has-background',
+        style: {
+            backgroundColor: 'var(--wp--preset--color--bggray, #f5f5f5)'
+        }
+    });
+
     return (
-        <div {...useBlockProps()}>
+        <div {...blockProps}>
             <InnerBlocks template={TEMPLATE} templateLock="all" />
         </div>
     );
