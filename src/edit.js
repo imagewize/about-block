@@ -40,7 +40,7 @@ import profileImage from './assets/profile.jpg';
 export default function Edit() {
     const TEMPLATE = [
         ['core/spacer', { 
-            height: '40px'
+            height: '60px'
         }],
         ['core/columns', { 
             layout: { type: 'constrained' }
@@ -90,7 +90,7 @@ export default function Edit() {
             ]]
         ]],
         ['core/spacer', { 
-            height: '40px'
+            height: '60px'
         }]
     ];
 
