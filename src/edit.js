@@ -2,31 +2,12 @@ import { __ } from '@wordpress/i18n';
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 import './editor.scss';
 
-// First register the block style
+// Register rounded style for core/image
 wp.domReady(() => {
-    if (wp.blocks.getBlockType('core/image')) {
-        wp.blocks.unregisterBlockStyle('core/image', 'rounded');
-        wp.blocks.registerBlockStyle('core/image', {
-            name: 'rounded',
-            label: 'Rounded'
-        });
-    }
-
-    // Create a custom variation for core/image with border support
-    wp.blocks.registerBlockVariation('core/image', {
-        name: 'about-image',
-        title: 'About Image',
-        attributes: {
-            className: 'about-image-variation',
-            style: {
-                border: {
-                    width: '8px',
-                    color: 'rgba(203,203,203,1)',
-                    radius: '9999px',
-                    style: 'solid'
-                }
-            }
-        }
+    wp.blocks.registerBlockStyle('core/image', {
+        name: 'rounded',
+        label: 'Rounded',
+        isDefault: false
     });
 });
 
@@ -71,9 +52,17 @@ export default function Edit({ attributes, setAttributes }) {
                     }
                 }, [
                     ['core/image', { 
-                        variation: 'about-image',
+                        className: 'is-style-rounded aligncenter',
                         url: profileImage,
-                        alt: 'Profile Image'
+                        alt: 'Profile Image',
+                        style: {
+                            border: {
+                                width: '8px',
+                                color: 'rgba(203,203,203,1)',
+                                radius: '9999px',
+                                style: 'solid'
+                            }
+                        }
                     }]
                 ]],
                 ['core/column', { width: '80%' }, [

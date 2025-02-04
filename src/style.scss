@@ -17,20 +17,4 @@
             border-radius: 9999px;
         }
     }
-    
-    // Mobile styles
-    @media (max-width: 768px) {
-        margin-left: 0;
-        margin-right: 0;
-        
-        .wp-block-group__inner-container {
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-        
-        .wp-block-columns {
-            padding-left: 0;
-            padding-right: 0;
-        }
-    }
 }
