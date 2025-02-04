@@ -1,7 +1,5 @@
 import { __ } from '@wordpress/i18n';
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
-import { addFilter } from '@wordpress/hooks';
-import { createHigherOrderComponent } from '@wordpress/compose';
 import './editor.scss';
 
 // First register the block style
@@ -13,50 +11,24 @@ wp.domReady(() => {
             label: 'Rounded'
         });
     }
-});
 
-// Then add border support
-addFilter(
-    'blocks.registerBlockType',
-    'imagewize/image-border-support',
-    (settings, name) => {
-        if (name !== 'core/image') {
-            return settings;
-        }
-
-        return {
-            ...settings,
-            supports: {
-                ...settings.supports,
-                color: {
-                    ...settings.supports?.color,
-                    border: true,
-                },
+    // Create a custom variation for core/image with border support
+    wp.blocks.registerBlockVariation('core/image', {
+        name: 'about-image',
+        title: 'About Image',
+        attributes: {
+            className: 'about-image-variation',
+            style: {
                 border: {
-                    color: true,
-                    radius: true,
-                    style: true,
-                    width: true,
-                },
-                className: true
-            },
-            attributes: {
-                ...settings.attributes,
-                style: {
-                    type: 'object',
-                    default: {
-                        border: {
-                            width: '8px',
-                            color: 'rgba(203,203,203,1)',
-                            radius: '9999px',
-                            style: 'solid'
-                        }
-                    }
+                    width: '8px',
+                    color: 'rgba(203,203,203,1)',
+                    radius: '9999px',
+                    style: 'solid'
                 }
             }
-        };
-    }
-);
+        }
+    });
+});
 
 import { registerBlockType } from '@wordpress/blocks';
 
@@ -99,17 +71,10 @@ export default function Edit({ attributes, setAttributes }) {
                     }
                 }, [
                     ['core/image', { 
-                        className: 'wp-block-image size-large',
+                        variation: 'about-image',
+                        className: 'about-image-variation',
                         url: profileImage,
-                        alt: 'Profile Image',
-                        style: {
-                            border: {
-                                width: '8px',
-                                color: 'rgba(203,203,203,1)',
-                                radius: '9999px',
-                                style: 'solid'
-                            }
-                        }
+                        alt: 'Profile Image'
                     }]
                 ]],
                 ['core/column', { width: '80%' }, [
