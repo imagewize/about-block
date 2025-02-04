@@ -7,12 +7,12 @@ wp.domReady(() => {
     if (wp.blocks.getBlockType('core/image')) {
         wp.blocks.registerBlockStyle('core/image', {
             name: 'default',
-            label: 'Default',
-            isDefault: true
+            label: 'Default'
         });
         wp.blocks.registerBlockStyle('core/image', {
             name: 'rounded',
-            label: 'Rounded'
+            label: 'Rounded',
+            isDefault: true
         });
     }
 });
@@ -60,7 +60,7 @@ export default function Edit({ attributes, setAttributes }) {
                     }
                 }, [
                     ['core/image', { 
-                        className: 'aligncenter',
+                        className: 'is-style-rounded aligncenter',  // Set rounded as initial style
                         url: profileImage,
                         alt: 'Profile Image',
                         style: {
