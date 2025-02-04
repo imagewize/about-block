@@ -38,6 +38,18 @@
     },
     "style": {
       "type": "object"
+    },
+    "innerBlocks": {
+      "core/image": {
+        "supports": {
+          "border": true,
+          "color": {
+            "text": true,
+            "background": true,
+            "border": true
+          }
+        }
+      }
     }
   },
   "textdomain": "about-block",
