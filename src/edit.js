@@ -36,29 +36,17 @@ addFilter(
             ...settings,
             supports: {
                 ...settings.supports,
-                __experimentalBorder: true,
-                border: true,
-                color: {
-                    ...settings.supports?.color,
-                    border: true,
-                }
-            },
-            attributes: {
-                ...settings.attributes,
-                style: {
-                    type: 'object'
-                },
-                borderColor: {
-                    type: 'string'
-                },
-                borderWidth: {
-                    type: 'string'
-                },
-                borderRadius: {
-                    type: 'string'
-                },
-                borderStyle: {
-                    type: 'string'
+                border: {
+                    color: true,
+                    radius: true,
+                    style: true,
+                    width: true,
+                    __experimentalDefaultControls: {
+                        color: true,
+                        radius: true,
+                        style: true,
+                        width: true,
+                    }
                 }
             }
         };
