@@ -13,4 +13,15 @@
         display: flex;
         justify-content: center;
     }
+    
+    // Mobile styles
+    @media (max-width: 768px) {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        
+        .wp-block-columns {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
 }
