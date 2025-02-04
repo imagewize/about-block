@@ -72,7 +72,6 @@ export default function Edit({ attributes, setAttributes }) {
                 }, [
                     ['core/image', { 
                         variation: 'about-image',
-                        className: 'about-image-variation',
                         url: profileImage,
                         alt: 'Profile Image'
                     }]
