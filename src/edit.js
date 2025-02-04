@@ -39,20 +39,22 @@ addFilter(
                     width: true,
                 },
                 className: true
+            },
+            attributes: {
+                ...settings.attributes,
+                style: {
+                    type: 'object',
+                    default: {
+                        border: {
+                            width: '8px',
+                            color: 'rgba(203,203,203,1)',
+                            radius: '9999px',
+                            style: 'solid'
+                        }
+                    }
+                }
             }
         };
-    }
-);
-
-// Add custom classes to image block
-addFilter(
-    'blocks.getSaveContent.extraProps',
-    'imagewize/image-border-class',
-    (props, blockType) => {
-        if (blockType.name === 'core/image') {
-            props.className = `${props.className || ''} has-custom-border`.trim();
-        }
-        return props;
     }
 );
 
@@ -97,7 +99,7 @@ export default function Edit({ attributes, setAttributes }) {
                     }
                 }, [
                     ['core/image', { 
-                        className: 'wp-block-image size-large has-custom-border',
+                        className: 'wp-block-image size-large',
                         url: profileImage,
                         alt: 'Profile Image',
                         style: {
