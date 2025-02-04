@@ -29,9 +29,14 @@ addFilter(
                     style: true,
                     width: true,
                 },
+                className: true
             },
             attributes: {
                 ...settings.attributes,
+                className: {
+                    type: 'string',
+                    default: 'has-custom-border'
+                },
                 style: {
                     type: 'object',
                     default: {
@@ -97,9 +102,17 @@ export default function Edit({ attributes, setAttributes }) {
                     }
                 }, [
                     ['core/image', { 
-                        className: 'aligncenter',
+                        className: 'aligncenter has-custom-border',
                         url: profileImage,
                         alt: 'Profile Image',
+                        style: {
+                            border: {
+                                width: '8px',
+                                color: 'rgba(203,203,203,1)',
+                                radius: '9999px',
+                                style: 'solid'
+                            }
+                        }
                     }]
                 ]],
                 ['core/column', { width: '80%' }, [
