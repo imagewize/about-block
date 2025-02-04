@@ -2,6 +2,21 @@ import { __ } from '@wordpress/i18n';
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 import './editor.scss';
 
+// Register core/image styles
+wp.domReady(() => {
+    if (wp.blocks.getBlockType('core/image')) {
+        wp.blocks.registerBlockStyle('core/image', {
+            name: 'default',
+            label: 'Default',
+            isDefault: true
+        });
+        wp.blocks.registerBlockStyle('core/image', {
+            name: 'rounded',
+            label: 'Rounded'
+        });
+    }
+});
+
 // Remove custom block style registration since we're using native border controls
 
 import { registerBlockType } from '@wordpress/blocks';
@@ -50,7 +65,9 @@ export default function Edit({ attributes, setAttributes }) {
                         alt: 'Profile Image',
                         style: {
                             border: {
-                                radius: '9999px' // Default rounded style
+                                width: '8px',
+                                color: 'rgba(203,203,203,1)',
+                                style: 'solid'
                             }
                         }
                     }]
