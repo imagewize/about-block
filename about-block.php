@@ -1,16 +1,18 @@
 <?php
 /**
- * Plugin Name:       About Block
- * Description:       Example block scaffolded with Create Block tool.
- * Version:           0.1.0
+ * Plugin Name: About Block
+ * Plugin URI: https://github.com/imagewize/about-block
+ * Description: A WordPress block for displaying an about section with image and text layout.
+ * Version: 0.1.0
  * Requires at least: 6.7
- * Requires PHP:      7.4
- * Author:            The WordPress Contributors
- * License:           GPL-2.0-or-later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       about-block
+ * Requires PHP: 8.0
+ * Author: Imagewize
+ * Author URI: https://imagewize.com
+ * License: GPL-2.0-or-later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: about-block
  *
- * @package CreateBlock
+ * @package about-block
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
