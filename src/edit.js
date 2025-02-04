@@ -64,7 +64,14 @@ export default function Edit({ attributes, setAttributes }) {
                     ['core/image', { 
                         className: 'is-style-rounded aligncenter',
                         url: profileImage,
-                        alt: 'Profile Image'
+                        alt: 'Profile Image',
+                        style: {
+                            border: {
+                                width: '8px',
+                                color: 'rgba(203,203,203,1)',
+                                radius: '9999px'
+                            }
+                        }
                     }]
                 ]],
                 ['core/column', { width: '80%' }, [
