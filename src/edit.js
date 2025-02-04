@@ -21,17 +21,9 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
  */
 import './editor.scss';
 
-import { registerBlockType } from '@wordpress/blocks';
-
-// Register dependent blocks
-import '@wordpress/block-library';
-
-// Import profile image
-import profileImage from './assets/profile.jpg';
-
-// Add border support to core/image block
 import { addFilter } from '@wordpress/hooks';
 
+// Add border support to core/image block
 addFilter(
     'blocks.registerBlockType',
     'imagewize/image-border-support',
@@ -44,22 +36,42 @@ addFilter(
             ...settings,
             supports: {
                 ...settings.supports,
-                border: {
-                    color: true,
-                    radius: true,
-                    style: true,
-                    width: true,
-                    __experimentalDefaultControls: {
-                        color: true,
-                        radius: true,
-                        style: true,
-                        width: true,
-                    }
+                __experimentalBorder: true,
+                border: true,
+                color: {
+                    ...settings.supports?.color,
+                    border: true,
+                }
+            },
+            attributes: {
+                ...settings.attributes,
+                style: {
+                    type: 'object'
+                },
+                borderColor: {
+                    type: 'string'
+                },
+                borderWidth: {
+                    type: 'string'
+                },
+                borderRadius: {
+                    type: 'string'
+                },
+                borderStyle: {
+                    type: 'string'
                 }
             }
         };
     }
 );
+
+import { registerBlockType } from '@wordpress/blocks';
+
+// Register dependent blocks
+import '@wordpress/block-library';
+
+// Import profile image
+import profileImage from './assets/profile.jpg';
 
 /**
  * The edit function describes the structure of your block in the context of the

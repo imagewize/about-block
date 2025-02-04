@@ -13,7 +13,9 @@
         display: flex;
         justify-content: center;
 
-        img {
+        img, 
+        img.is-style-rounded,
+        img.is-style-default {
             border-style: var(--wp--style--border--style, solid);
             border-width: var(--wp--style--border--width, 8px);
             border-color: var(--wp--style--border--color, rgba(203,203,203,1));
