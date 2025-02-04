@@ -29,6 +29,15 @@ import '@wordpress/block-library';
 // Import profile image
 import profileImage from './assets/profile.jpg';
 
+// Add support for border to core/image block
+wp.blocks.registerBlockType('core/image', {
+    ...wp.blocks.getBlockType('core/image'),
+    supports: {
+        ...wp.blocks.getBlockType('core/image').supports,
+        border: true
+    }
+});
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -64,7 +73,14 @@ export default function Edit({ attributes, setAttributes }) {
                     ['core/image', { 
                         className: 'is-style-rounded aligncenter',
                         url: profileImage,
-                        alt: 'Profile Image'
+                        alt: 'Profile Image',
+                        style: {
+                            border: {
+                                width: '8px',
+                                color: 'rgba(203,203,203,1)',
+                                radius: '9999px'
+                            }
+                        }
                     }]
                 ]],
                 ['core/column', { width: '80%' }, [

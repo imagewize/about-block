@@ -5,4 +5,13 @@
 .wp-block-imagewize-about-block { // Changed from wp-block-create-block-about-block
     position: relative;
     box-sizing: border-box;
+
+    .wp-block-image {
+        img {
+            border-style: solid;
+            border-width: var(--wp--custom--border--width, 8px);
+            border-color: var(--wp--custom--border--color, rgba(203,203,203,1));
+            border-radius: var(--wp--custom--border--radius, 9999px);
+        }
+    }
 }
