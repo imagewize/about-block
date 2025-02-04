@@ -16,12 +16,17 @@
     
     // Mobile styles
     @media (max-width: 768px) {
-        margin-left: 1rem;
-        margin-right: 1rem;
+        margin-left: 0;
+        margin-right: 0;
+        
+        .wp-block-group__inner-container {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
         
         .wp-block-columns {
-            margin-left: 0;
-            margin-right: 0;
+            padding-left: 0;
+            padding-right: 0;
         }
     }
 }
