@@ -22,6 +22,8 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 import './editor.scss';
 
 import { registerBlockType } from '@wordpress/blocks';
+import { addFilter } from '@wordpress/hooks';
+import { createHigherOrderComponent } from '@wordpress/compose';
 
 // Register dependent blocks
 import '@wordpress/block-library';
@@ -29,14 +31,24 @@ import '@wordpress/block-library';
 // Import profile image
 import profileImage from './assets/profile.jpg';
 
-// Add support for border to core/image block
-wp.blocks.registerBlockType('core/image', {
-    ...wp.blocks.getBlockType('core/image'),
-    supports: {
-        ...wp.blocks.getBlockType('core/image').supports,
-        border: true
+// Add border support to core/image block
+addFilter(
+    'blocks.registerBlockType',
+    'imagewize/image-border-support',
+    (settings, name) => {
+        if (name !== 'core/image') {
+            return settings;
+        }
+
+        return {
+            ...settings,
+            supports: {
+                ...settings.supports,
+                border: true,
+            },
+        };
     }
-});
+);
 
 /**
  * The edit function describes the structure of your block in the context of the
