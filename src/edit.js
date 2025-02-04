@@ -1,57 +1,15 @@
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
- */
 import { __ } from '@wordpress/i18n';
-
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
-
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * Those files can contain any CSS code that gets applied to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
 import './editor.scss';
 
-import { addFilter } from '@wordpress/hooks';
-
-// Add border support to core/image block
-addFilter(
-    'blocks.registerBlockType',
-    'imagewize/image-border-support',
-    (settings, name) => {
-        if (name !== 'core/image') {
-            return settings;
-        }
-        
-        return {
-            ...settings,
-            supports: {
-                ...settings.supports,
-                border: {
-                    color: true,
-                    radius: true,
-                    style: true,
-                    width: true,
-                    __experimentalDefaultControls: {
-                        color: true,
-                        radius: true,
-                        style: true,
-                        width: true,
-                    }
-                }
-            }
-        };
-    }
-);
+// Register rounded style for core/image
+wp.domReady(() => {
+    wp.blocks.registerBlockStyle('core/image', {
+        name: 'rounded',
+        label: 'Rounded',
+        isDefault: false
+    });
+});
 
 import { registerBlockType } from '@wordpress/blocks';
 
@@ -101,7 +59,8 @@ export default function Edit({ attributes, setAttributes }) {
                             border: {
                                 width: '8px',
                                 color: 'rgba(203,203,203,1)',
-                                radius: '9999px'
+                                radius: '9999px',
+                                style: 'solid'
                             }
                         }
                     }]
