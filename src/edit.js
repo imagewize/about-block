@@ -29,6 +29,38 @@ import '@wordpress/block-library';
 // Import profile image
 import profileImage from './assets/profile.jpg';
 
+// Add border support to core/image block
+import { addFilter } from '@wordpress/hooks';
+
+addFilter(
+    'blocks.registerBlockType',
+    'imagewize/image-border-support',
+    (settings, name) => {
+        if (name !== 'core/image') {
+            return settings;
+        }
+        
+        return {
+            ...settings,
+            supports: {
+                ...settings.supports,
+                border: {
+                    color: true,
+                    radius: true,
+                    style: true,
+                    width: true,
+                    __experimentalDefaultControls: {
+                        color: true,
+                        radius: true,
+                        style: true,
+                        width: true,
+                    }
+                }
+            }
+        };
+    }
+);
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.

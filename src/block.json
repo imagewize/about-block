@@ -22,13 +22,7 @@
 			"fontSize": true,
 			"lineHeight": true
 		},
-		"align": ["wide", "full"],
-		 "border": {
-			"color": true,
-			"radius": true,
-			"style": true,
-			"width": true
-		}
+		"align": ["wide", "full"]
 	},
 	"attributes": {
 		"backgroundColor": {
