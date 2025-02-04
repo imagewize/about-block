@@ -118,7 +118,7 @@ export default function Edit({ attributes, setAttributes }) {
 
     return (
         <div {...blockProps}>
-            <InnerBlocks template={TEMPLATE} templateLock="all" />
+            <InnerBlocks template={TEMPLATE} />
         </div>
     );
 }
