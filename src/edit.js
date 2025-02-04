@@ -2,14 +2,22 @@ import { __ } from '@wordpress/i18n';
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 import './editor.scss';
 
-// Register rounded style for core/image
+// Register core/image styles
 wp.domReady(() => {
-    wp.blocks.registerBlockStyle('core/image', {
-        name: 'rounded',
-        label: 'Rounded',
-        isDefault: false
-    });
+    if (wp.blocks.getBlockType('core/image')) {
+        wp.blocks.registerBlockStyle('core/image', {
+            name: 'default',
+            label: 'Default'
+        });
+        wp.blocks.registerBlockStyle('core/image', {
+            name: 'rounded',
+            label: 'Rounded',
+            isDefault: true
+        });
+    }
 });
+
+// Remove custom block style registration since we're using native border controls
 
 import { registerBlockType } from '@wordpress/blocks';
 
@@ -52,14 +60,13 @@ export default function Edit({ attributes, setAttributes }) {
                     }
                 }, [
                     ['core/image', { 
-                        className: 'is-style-rounded aligncenter',
+                        className: 'is-style-rounded aligncenter',  // Set rounded as initial style
                         url: profileImage,
                         alt: 'Profile Image',
                         style: {
                             border: {
                                 width: '8px',
                                 color: 'rgba(203,203,203,1)',
-                                radius: '9999px',
                                 style: 'solid'
                             }
                         }
