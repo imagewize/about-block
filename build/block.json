@@ -25,13 +25,7 @@
     "align": [
       "wide",
       "full"
-    ],
-    "border": {
-      "color": true,
-      "radius": true,
-      "style": true,
-      "width": true
-    }
+    ]
   },
   "attributes": {
     "backgroundColor": {
