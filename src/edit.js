@@ -1,42 +1,59 @@
 import { __ } from '@wordpress/i18n';
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 import { addFilter } from '@wordpress/hooks';
+import { createHigherOrderComponent } from '@wordpress/compose';
 import './editor.scss';
 
-// Modify core/image block settings to add border support
-wp.domReady(() => {
-    const { updateCategory } = wp.blocks;
-    
-    // Add border support to core/image block
-    wp.blocks.unregisterBlockStyle('core/image', 'rounded');
-    wp.blocks.registerBlockStyle('core/image', {
-        name: 'rounded',
-        label: 'Rounded'
-    });
+// Add border support to core/image block before any other registrations
+addFilter(
+    'blocks.registerBlockType',
+    'imagewize/image-border-support',
+    (settings, name) => {
+        if (name !== 'core/image') {
+            return settings;
+        }
 
-    // Add border support
-    const imageBlock = wp.blocks.getBlockType('core/image');
-    if (imageBlock) {
-        wp.blocks.unregisterBlockType('core/image');
-        wp.blocks.registerBlockType('core/image', {
-            ...imageBlock,
+        return {
+            ...settings,
             supports: {
-                ...imageBlock.supports,
+                ...settings.supports,
+                color: {
+                    ...settings.supports?.color,
+                    background: true,
+                    text: true,
+                    border: true,
+                },
                 border: {
                     color: true,
                     radius: true,
                     style: true,
                     width: true,
-                    __experimentalDefaultControls: {
-                        color: true,
-                        radius: true,
-                        style: true,
-                        width: true,
+                },
+            },
+            attributes: {
+                ...settings.attributes,
+                style: {
+                    type: 'object',
+                    default: {
+                        border: {
+                            width: '8px',
+                            color: 'rgba(203,203,203,1)',
+                            radius: '9999px',
+                            style: 'solid'
+                        }
                     }
                 }
             }
-        });
+        };
     }
+);
+
+// Register block styles for core/image
+wp.domReady(() => {
+    wp.blocks.registerBlockStyle('core/image', {
+        name: 'rounded',
+        label: 'Rounded'
+    });
 });
 
 import { registerBlockType } from '@wordpress/blocks';
