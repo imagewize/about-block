@@ -4,7 +4,18 @@ import { addFilter } from '@wordpress/hooks';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import './editor.scss';
 
-// Add border support to core/image block before any other registrations
+// First register the block style
+wp.domReady(() => {
+    if (wp.blocks.getBlockType('core/image')) {
+        wp.blocks.unregisterBlockStyle('core/image', 'rounded');
+        wp.blocks.registerBlockStyle('core/image', {
+            name: 'rounded',
+            label: 'Rounded'
+        });
+    }
+});
+
+// Then add border support
 addFilter(
     'blocks.registerBlockType',
     'imagewize/image-border-support',
@@ -19,8 +30,6 @@ addFilter(
                 ...settings.supports,
                 color: {
                     ...settings.supports?.color,
-                    background: true,
-                    text: true,
                     border: true,
                 },
                 border: {
@@ -30,36 +39,22 @@ addFilter(
                     width: true,
                 },
                 className: true
-            },
-            attributes: {
-                ...settings.attributes,
-                className: {
-                    type: 'string',
-                    default: 'has-custom-border'
-                },
-                style: {
-                    type: 'object',
-                    default: {
-                        border: {
-                            width: '8px',
-                            color: 'rgba(203,203,203,1)',
-                            radius: '9999px',
-                            style: 'solid'
-                        }
-                    }
-                }
             }
         };
     }
 );
 
-// Register block styles for core/image
-wp.domReady(() => {
-    wp.blocks.registerBlockStyle('core/image', {
-        name: 'rounded',
-        label: 'Rounded'
-    });
-});
+// Add custom classes to image block
+addFilter(
+    'blocks.getSaveContent.extraProps',
+    'imagewize/image-border-class',
+    (props, blockType) => {
+        if (blockType.name === 'core/image') {
+            props.className = `${props.className || ''} has-custom-border`.trim();
+        }
+        return props;
+    }
+);
 
 import { registerBlockType } from '@wordpress/blocks';
 
@@ -102,7 +97,7 @@ export default function Edit({ attributes, setAttributes }) {
                     }
                 }, [
                     ['core/image', { 
-                        className: 'aligncenter has-custom-border',
+                        className: 'wp-block-image size-large has-custom-border',
                         url: profileImage,
                         alt: 'Profile Image',
                         style: {
