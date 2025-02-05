@@ -119,7 +119,9 @@ export default function Edit({ attributes, setAttributes }) {
         ]]
     ];
 
-    const blockProps = useBlockProps();
+    const blockProps = useBlockProps({
+        className: 'alignfull'
+    });
 
     return (
         <div {...blockProps}>
