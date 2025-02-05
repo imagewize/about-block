@@ -26,6 +26,29 @@ composer require imagewize/about-block
 1. Upload the plugin files to the `/wp-content/plugins/about-block` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
 
+### Theme Requirements
+
+Your theme needs to have border support enabled for images. Add the following to your theme's `theme.json`:
+
+```json
+{
+  "settings": {
+    "blocks": {
+      "core/image": {
+        "border": {
+          "color": true,
+          "radius": true,
+          "style": true,
+          "width": true
+        }
+      }
+    }
+  }
+}
+```
+
+Without these settings, you won't be able to adjust the border properties of the profile image in the block.
+
 ## Development
 
 ### Local Development
