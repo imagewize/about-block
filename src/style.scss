@@ -23,6 +23,25 @@
         margin-left: 0;
         margin-right: 0;
         
+        &.alignfull {
+            .wp-block-group__inner-container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .wp-block-heading {
+                text-align: center;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .wp-block-paragraph,
+            p {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+
         .wp-block-group__inner-container {
             padding-left: 1rem;
             padding-right: 1rem;
