@@ -3,7 +3,7 @@
  * Plugin Name: About Block
  * Plugin URI: https://github.com/imagewize/about-block
  * Description: A WordPress block for displaying an about section with image and text layout.
- * Version: 0.1.0
+ * Version: 1.0.1
  * Requires at least: 6.7
  * Requires PHP: 8.0
  * Author: Imagewize
